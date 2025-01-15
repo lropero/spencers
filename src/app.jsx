@@ -10,10 +10,32 @@ const App = () => {
 
   useEffect(() => {
     if (!window.Vocal0) return
-    window.Vocal0.on('navigate', path => {
+    window.Vocal0.on('click', ({ element }) => {
+      if (element === 'submit') {
+        const submit = document.querySelector('#submit')
+        if (submit) submit.click()
+      }
+    })
+    window.Vocal0.on('input', ({ field, value }) => {
+      if (field === 'partySize') {
+        const select = document.querySelector('#OT_partySizeSelect')
+        if (select) select.value = value
+      } else if (field === 'date') {
+        const input = document.querySelector('#startDate')
+        if (input) input.value = value
+      } else if (field === 'time') {
+        const select = document.querySelector('#OT_timeSelect')
+        if (select) select.value = value
+      }
+    })
+    window.Vocal0.on('reserve', () => {
+      const element = document.querySelector('#content-container')
+      if (element) element.innerHTML = '<h2 style="margin-bottom: 4px;">Your table is ready!</h2><small>(not really, this is a demo)</small><h3>Thank you for trying out our voice agent provided by <a href="https://www.vocal0.com" target="_blank">Vocal0</a></h3>'
+    })
+    window.Vocal0.on('navigate', ({ path }) => {
       navigate(`/${path}`)
     })
-    return () => window.Vocal0.off('navigate')
+    return () => window.Vocal0.off()
   }, [window.Vocal0])
 
   return (

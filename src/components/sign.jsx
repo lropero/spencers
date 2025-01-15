@@ -19,11 +19,11 @@ const Sign = () => {
     position: 'fixed',
     textDecoration: 'none',
     top: 0,
-    zIndex: 10000
+    zIndex: 9999
   }
 
   return (
-    <a href='https://www.vocal0.com' onMouseEnter={event => (event.target.style.color = hover.color)} onMouseLeave={event => (event.target.style.color = style.color)} style={style}>
+    <a href='https://www.vocal0.com' onMouseEnter={event => (event.target.style.color = hover.color)} onMouseLeave={event => (event.target.style.color = style.color)} style={style} target='_blank' rel='noreferrer'>
       DEMO Vocal0
     </a>
   )
