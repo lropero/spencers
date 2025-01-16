@@ -19,13 +19,22 @@ const App = () => {
     window.Vocal0.on('input', ({ field, value }) => {
       if (field === 'partySize') {
         const select = document.querySelector('#OT_partySizeSelect')
-        if (select) select.value = value
+        if (select) {
+          select.style.backgroundColor = '#b2fba5'
+          select.value = value
+        }
       } else if (field === 'date') {
         const input = document.querySelector('#startDate')
-        if (input) input.value = value
+        if (input) {
+          input.style.backgroundColor = '#b2fba5'
+          input.value = value
+        }
       } else if (field === 'time') {
         const select = document.querySelector('#OT_timeSelect')
-        if (select) select.value = value
+        if (select) {
+          select.style.backgroundColor = '#b2fba5'
+          select.value = value
+        }
       }
     })
     window.Vocal0.on('reserve', () => {
