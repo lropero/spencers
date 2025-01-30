@@ -6,5 +6,5 @@ Check it out [here](https://vocal0-spencers.netlify.app).
 
 ### Requires
 
-- Node v22.13.0
-- npm v11.0.0
+- Node v22.13.1
+- npm v11.1.0
