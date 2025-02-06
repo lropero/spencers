@@ -7,10 +7,12 @@
   "author": "vocal0.com",
   "type": "module",
   "scripts": {
+    "add": "npm run upgrade && npm run nuke && npm run lint && npm run sort && git add .",
     "audit": "npx upgradeps",
     "audit:verbose": "npx upgradeps -v",
     "build": "npx vite build",
     "clean": "npx rimraf dist && npx rimraf node_modules && npx rimraf package-lock.json",
+    "predev": "cd ../vocal0/modules/client && npm run prestart && cp dist/vocal0.min.js ../../../spencers/public/vocal0.min.js",
     "dev": "npx vite",
     "lint": "npx prettier --write . && npx standard --fix",
     "nuke": "npm run clean && npm cache verify && npm install",
@@ -21,7 +23,7 @@
   "dependencies": {
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "react-router-dom": "7.1.3"
+    "react-router-dom": "7.1.5"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "4.3.4",
@@ -30,6 +32,6 @@
     "sort-package-json": "2.14.0",
     "standard": "17.1.2",
     "upgradeps": "2.0.7",
-    "vite": "6.0.11"
+    "vite": "6.1.0"
   }
 }
