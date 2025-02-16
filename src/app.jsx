@@ -45,11 +45,7 @@ const App = () => {
         navigate(`/${path}`)
       })
     }
-    if (window.Vocal0) {
-      loadVocal0()
-    } else {
-      window.addEventListener('vocal0Loaded', loadVocal0)
-    }
+    window.addEventListener('vocal0Loaded', loadVocal0)
     return () => {
       window.removeEventListener('vocal0Loaded', loadVocal0)
       window.Vocal0.off()
