@@ -9,7 +9,7 @@ const App = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    const loadVocal0 = () => {
+    const listenVocal0 = () => {
       window.Vocal0.on('click', ({ element }) => {
         if (element === 'submit') {
           const submit = document.querySelector('#submit')
@@ -45,9 +45,9 @@ const App = () => {
         navigate(`/${path}`)
       })
     }
-    window.addEventListener('vocal0Loaded', loadVocal0)
+    window.addEventListener('vocal0Loaded', listenVocal0)
     return () => {
-      window.removeEventListener('vocal0Loaded', loadVocal0)
+      window.removeEventListener('vocal0Loaded', listenVocal0)
       window.Vocal0.off()
     }
   }, [])
